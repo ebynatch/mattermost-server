@@ -1286,7 +1286,7 @@ CREATE INDEX idx_channels_team_id ON public.channels USING btree (teamid);
 -- Name: idx_channels_txt; Type: INDEX; Schema: public; Owner: mmuser; Tablespace: 
 --
 
-CREATE INDEX idx_channels_txt ON public.channels USING gin (to_tsvector('english'::regconfig, (((name)::text || ' '::text) || (displayname)::text)));
+CREATE INDEX idx_channels_txt ON public.channels USING gin (to_tsvector('japanese'::regconfig, (((name)::text || ' '::text) || (displayname)::text)));
 
 
 --
@@ -1531,7 +1531,7 @@ CREATE INDEX idx_posts_delete_at ON public.posts USING btree (deleteat);
 -- Name: idx_posts_hashtags_txt; Type: INDEX; Schema: public; Owner: mmuser; Tablespace: 
 --
 
-CREATE INDEX idx_posts_hashtags_txt ON public.posts USING gin (to_tsvector('english'::regconfig, (hashtags)::text));
+CREATE INDEX idx_posts_hashtags_txt ON public.posts USING gin (to_tsvector('japanese'::regconfig, (hashtags)::text));
 
 
 --
@@ -1545,7 +1545,7 @@ CREATE INDEX idx_posts_is_pinned ON public.posts USING btree (ispinned);
 -- Name: idx_posts_message_txt; Type: INDEX; Schema: public; Owner: mmuser; Tablespace: 
 --
 
-CREATE INDEX idx_posts_message_txt ON public.posts USING gin (to_tsvector('english'::regconfig, (message)::text));
+CREATE INDEX idx_posts_message_txt ON public.posts USING gin (to_tsvector('japanese'::regconfig, (message)::text));
 
 
 --
@@ -1713,14 +1713,14 @@ CREATE INDEX idx_user_access_tokens_user_id ON public.useraccesstokens USING btr
 -- Name: idx_users_all_no_full_name_txt; Type: INDEX; Schema: public; Owner: mmuser; Tablespace: 
 --
 
-CREATE INDEX idx_users_all_no_full_name_txt ON public.users USING gin (to_tsvector('english'::regconfig, (((((username)::text || ' '::text) || (nickname)::text) || ' '::text) || (email)::text)));
+CREATE INDEX idx_users_all_no_full_name_txt ON public.users USING gin (to_tsvector('japanese'::regconfig, (((((username)::text || ' '::text) || (nickname)::text) || ' '::text) || (email)::text)));
 
 
 --
 -- Name: idx_users_all_txt; Type: INDEX; Schema: public; Owner: mmuser; Tablespace: 
 --
 
-CREATE INDEX idx_users_all_txt ON public.users USING gin (to_tsvector('english'::regconfig, (((((((((username)::text || ' '::text) || (firstname)::text) || ' '::text) || (lastname)::text) || ' '::text) || (nickname)::text) || ' '::text) || (email)::text)));
+CREATE INDEX idx_users_all_txt ON public.users USING gin (to_tsvector('japanese'::regconfig, (((((((((username)::text || ' '::text) || (firstname)::text) || ' '::text) || (lastname)::text) || ' '::text) || (nickname)::text) || ' '::text) || (email)::text)));
 
 
 --
@@ -1769,14 +1769,14 @@ CREATE INDEX idx_users_lastname_lower ON public.users USING btree (lower((lastna
 -- Name: idx_users_names_no_full_name_txt; Type: INDEX; Schema: public; Owner: mmuser; Tablespace: 
 --
 
-CREATE INDEX idx_users_names_no_full_name_txt ON public.users USING gin (to_tsvector('english'::regconfig, (((username)::text || ' '::text) || (nickname)::text)));
+CREATE INDEX idx_users_names_no_full_name_txt ON public.users USING gin (to_tsvector('japanese'::regconfig, (((username)::text || ' '::text) || (nickname)::text)));
 
 
 --
 -- Name: idx_users_names_txt; Type: INDEX; Schema: public; Owner: mmuser; Tablespace: 
 --
 
-CREATE INDEX idx_users_names_txt ON public.users USING gin (to_tsvector('english'::regconfig, (((((((username)::text || ' '::text) || (firstname)::text) || ' '::text) || (lastname)::text) || ' '::text) || (nickname)::text)));
+CREATE INDEX idx_users_names_txt ON public.users USING gin (to_tsvector('japanese'::regconfig, (((((((username)::text || ' '::text) || (firstname)::text) || ' '::text) || (lastname)::text) || ' '::text) || (nickname)::text)));
 
 
 --
