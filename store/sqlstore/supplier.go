@@ -781,7 +781,7 @@ func (ss *SqlSupplier) createIndexIfNotExists(indexName string, tableName string
 			}
 			columnName := columnNames[0]
 			postgresColumnNames := convertMySQLFullTextColumnsToPostgres(columnName)
-			query = "CREATE INDEX " + indexName + " ON " + tableName + " USING gin(to_tsvector('english', " + postgresColumnNames + "))"
+			query = "CREATE INDEX " + indexName + " ON " + tableName + " USING gin(to_tsvector('japanese', " + postgresColumnNames + "))"
 		} else {
 			query = "CREATE " + uniqueStr + "INDEX " + indexName + " ON " + tableName + " (" + strings.Join(columnNames, ", ") + ")"
 		}
